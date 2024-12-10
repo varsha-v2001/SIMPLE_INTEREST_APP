@@ -1,0 +1,227 @@
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                      JavaScript  in front end
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    1. Used to provide behaviour to HTML elements
+    2. Applying JS to HTML elements
+    - Internal JS - JS code in script tag
+    - External JS - Link an external JS file using script tag
+    3. DOM : Document Object Model : Tree structure using object corresponding to a webpage  
+    4. DOM methods: used to select HTML elements into JS
+        - Using tag : document.getElementsByTagName("tag")
+        - Using id: document.getElementsById("tag") / id
+        - Using id: document.getElementsByClassName("tag") / id
+        - Using querySelector : document.querySelector("tag/#id/.class") returns single value
+        - Using querySelectorAll : document.querySelectorAll("tag/#id/.class") returns all value 
+    5. Events : triggered by user action, events occured in html elements
+        - Mouse triggered events: click, hover, drop and drag
+        - Keyboard related events: key press down,up...etc
+        - Touch related events: 
+    6. Handle an event in HTML : event-function-call(),behaviour change must define as a function
+    7. Access / update an content  in JS:
+        - innerHTML /innertext property
+    8. Permanently store data in browser
+        - data will be stored permanently, data will be stored as key value pairs,type of both key and value must be string.
+        to convert value to string - use JSON.stringify(value)
+        string data to normal type: JSON.parse(value)
+        - Local storage: 
+            -setItem(key,value): used to store data
+            -getItem(key): used to get value from storage
+            -removeItem(key): used delete a value from a storage
+            clear(): used to clear storage
+        - Session storage: after closing the session the data will be removed
+    9. Working browser Js runtime environment: 
+        - JavaScript engines: It handles js execution, convert js code to code that is understand by the browser engine.
+        - Call stack: data structure used to keep track of currently executing functions, make sure each one finishes before moving to next. Only one call stack in JS engine thats why it's known as single threaded programmming.
+            - JS handles 2 types of functions
+            - Syncronous function: functions executes without any delay
+            - Asyncronous function: functions executes with some delay
+                - callback functions:stored in Task Queue (macro task queue)- like setTimeOut(),user events like click,drag,etc.
+                - Web APIs: stored in micro task queue which is a priority queue
+            - Event loop: It manages the flow of the code , ensuring asychronous operation and user interaction run smoothly
+        - Heap: Storage for variable and objects in JS.
+    10. Asyncronous function handling in js
+        - Call back function: Nesting of callback function will leads to callback hell, that means js won't give any response for this kind of call
+            - Promise: used to resolve asyncronous function, it will definitely gives you a response. Two ways to resolve promise:
+                - resolved state: if an asyncronous function call returns a response that state of promise is known as "resolved state". to get response from resolved state we have to use then method.
+                - reject state: if asyncronous function call returns nothing after making the call, that state is called reject state. catch method .
+                - async - await keywords: To make pomise much more easier, to avoid callback from promise, if a function is asyncronous then we can use await inside the function.
+                        - async: makes function return a promise
+                        - await: makes a function to wait for a promise
+    11. API (Application Programming Interface): used to communicate between applications using internet.
+        - Types of APIs: Based on communication
+            - REST /SOAP : CLient server communication
+            - GRAPHQL : CLient server communication used in bulk data
+            - SOCKET : WEB chatting applications
+        - API testing tools:
+            - Postman: used in react 
+            - Thunderclient: used in js
+    12. URL (uniform resource locator): 
+        ex: https://jsonplaceholder.typicode.com/users/1
+            - Base URL: https://jsonplaceholder.typicode.com
+            - URI: uniform resource identifier ex:users
+            - Path Parameter:comes after URI
+        ex: https://www.google.com/search?q=logo&sca_esv=7cffce009da9068a&ei=6PQ6Z-7xC_OXnesPzvzhiQw&ved=0ahUKEwjuhfDbteW
+            - Query Parameter: value after ? in URI ex: ?q=logo&sca_esv=7cffce009da9068a&ei=6PQ6Z-7xC_OXnesPzvzhiQw&ved=0ahUKEwjuhfDbteW
+    13. HTTP (hypertext transfer protocol) : used to allow applications to make request via internet
+            - 2 Parts:
+                - HTTP request: Client application will make request to server
+                    - 2 parts:
+                        - header part: to keep secret data
+                        - body part: used to hold the data(binary,xml,JSON..in REST) to be transfered from Client to server
+                    - HTTP methods:
+                        - GET: used to get/read data from an application
+                        - POST: used to create/store data
+                        - PUT: update data completely
+                        - PATCH: used to update data partially
+                        - DELETE: used to remove data 
+                        
+                - HTTP response Status: To get the response status of request, browser is using HTTP response. Server application provides the response.
+                    - status codes:
+                        - 1XX : Informational error
+                        - 2XX : success
+                        - 3XX : Redirection
+                        - 4XX : Client error
+                        - 5XX : Server errors
+    14. JSON(javascript object notation): Is a data format used to transfer data from application to another application using internet.
+        - data stored as key alue pairs,here "key" must be string type
+            ex: "name":"max"
+    15. API call in js : AJAX(asyncronous javascript and xml): methods to make api calls using js.
+            - API call using - XMLHttpRequest(XHR)
+                XMLHttpRequest class has predefined functions and properties to make sending request and response between application in internet.
+                - Object of XMLHttpRequest is used to interact with server application.
+                - XMLHttpRequest class properties:
+                        - readyState: returns a number which indicates the state of a request, if readyState == 4 then receives the response.
+                        - responseText: returns a string that contain the response to the request as text.
+                        - status: return response status code of the request.
+                - XMLHttpRequest class methods:
+                        - open(): used to initialise a request
+                        - send(): send the request
+                - Events: 
+                        - onreadystatechange: event to occur whenever the value of readystate changes.
+                - Steps make an API call:
+                        1. Initialise an object for XHR class
+                        2. Initialise a request using open method
+                        3. send request
+            - API call using - fetch
+                    - fetch() function returns promise, then resolved response will get from "then" method and reject response get from "catch" methods
+
+    16. JavaScript modules : used to transfer data from one js to another.
+            - use Import / Export statements
+                - Export statements: used to share data from one js file to another, can be used in different ways,
+                    -using export keyword: used to export multiple data from a single js file
+                    - using export default keyword: this keyword must be at the end of that file.
+                - Import statements: used to use exported data from another js file
+                  2 types:
+                    - import with curly braces: if data exported using export keyword
+                    - import without curly braces: if data exported using export default keyword
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                REACT:  Advanced Frontend Application Library
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    1. Basic React:
+        - React App is a collection of diffferent libraries.
+        - React App is consist of diffferent components, which used to display contents on browser. All the components are arranged in a tree structure. Tree structure has a single parent/root node which is by default known as  "APP component", components are reusable.
+        - Pure Js functions to bulid components, it return how to display contents in browser. These functions are capable of doing single task with the help of arguments. Functions with no side effects.
+        - Declarative approach
+        - Virtual DOM: Light-weight memory representation of real DOM.
+        - Babel Library: used to display contents into browser.
+        - JSX (Javascript XML): JS extension for writing HTML code in JavaScript, which is ised to display contents in browser.
+            - JSX elements: ex:- const heading = <h1> Heading </h1>
+            - Rules for using JSX: 
+                - Every JSX elements must be inside a single tag. Parent tag can be any container tag(div, article, section, etc) or react fragments(<> </>)  tag without name.
+                - In JSX, we have to use "camel case" to write JSX contents. ex:- fontSize
+                - Every JSX code must have a closing tag. If a tag has content then :
+                    <startingTag> content </endingTag>. If a tag has no content:
+                    <startingTag></endingTag> or we can use self closing tags( <startingTag/> ) 
+                - Instead of attribute "class" use "className" in JSX
+                - Instead of attribute "for" use "htmlFor" in JSX
+                - In JSX, we can directly pass JS code inside a curly braces (eg: {js code} )
+    2. React App Creation
+        - 2 ways to create react App
+            - CRA ( using create-react-app command): not using so much
+            - Vite : tool for building web applications
+                - Installing vite globally: npm i -g create-vite
+                - React app creation using Vite: npm create vite@latest reactAppname -- -- template react
+    3. Files and Folder structure of react app using vite
+        - package.json file : npm configuration file for the project
+        - package-lock.json file :  used to hold version of dependent package of the project.
+        - eslint.config.js file : which may contain js configuration files
+        - node_modules folder : used to locally store dependent packages of project, we can generate node_modules folder with the help of command npm install/ npm i 
+        - public folder : used to hold data that can be accessed by any part of the project.
+        - index.html file: entry point of react application.
+        - src folder : logic of react application is defined here.
+            - main.jsx file : used to render (display in browser) react app in html element with id as "root".
+                - createRoot(): create a root to display react components inside a browser DOM node.
+            - css file: used to define style for all components in react app.
+            - App.jsx file : used to create react root component
+            - assets folder: used to hold media files used in react project
+    4. Components: used to display content in browser, to create component create a jsx or js file with filename starting capital letters.
+        - create components in two ways 
+            - Function based components / stateless components : use js pure functions to bulid components, function name must be similar as its filename. It must return jsx code.
+            - Class based / stateful components : uses class to create components. class inherit react component class, render method in class used to return jsx. before using reference super constructor must be used in the constructor.
+            - Life Cycle methods of a react component
+                - Mounting phase: Putting jsx into DOM 
+                    - constructor()
+                    - getDerivedStateFromProps()
+                    - render()
+                    - componentDidMount()
+                - Updating phase: When componentget updated
+                    - getDerivedStateFromProps()
+                    - getSnapshotBeforeUpdate()
+                    - shouldComponentUpdate(): return boolean value
+                    - render()
+                    - componentDidUpdate()
+                - Unmounting phase: Removing component from DOM 
+
+            Class based components                                                                             Function based components
+        --------------------------------                                                                    -------------------------------
+        1. Using class to create, render method must return jsx                                    1. Using js pure functions and return jsx
+        2. Stateful component                                                                      2. Stateless component
+        3. Hooks are not used                                                                      3. Hooks are used 
+        4. constructor is used to initialise state                                                 4. No need of constructor
+        5. Life Cycle methods are available                                                        5. Life Cycle methods are not available
+
+
+    5. Data sharing between react components
+        - data can be transferred from parent to child : use "props" Object
+    6. Props: It is property of a component. It s an object used to transfer data from parent to child, parent data can be shared via child tag attribute. to access parent data in child use "props" as an argument in child component function.
+    7. Conditional rendering: used based on Condition rendering jsx elements in browser, using if-else , ternary operator/if statement (&& operator)
+    8. List in react: use map array method. set a key attr to duplicating jsx element in a list.
+    9. CSS styling in react: 
+        - inline CSS: use style attribute to apply style to jsx element, style must be as js object
+            - syntax: style ={{css property}}
+        - External CSS: define css style in an external css file. link css file to componentfile using import statement. we cannot importcss file inro a variable in component file 
+            - import 'css file path'
+        - using CSS mule files: file with extension .module.css is known as css 'module file', in this we have to define style in class. to use module css file we have to import it to the component file.
+            - import variableName from 'module css file path' , to apply style in component, use variableName.className in curly braces
+        - Material UI: npm install @mui/material @emotion/react @emotion/styled
+    10. Event handling in react: syntax: event = {function call}
+        - Binding function without arguments: event ={functionName}
+        - Binding function with arguments: event = {()=> functionName(argument)}
+        - Binding function with arguments as event: event ={(event)=>functionName(event)}
+    11. State in react: used to store data of a component, when a state value change component will rerender
+    12. HOOKS in react: predefined methods in react. used to provide component features to function based component. to use a hook in a functional component, it has to be call the hook:
+        - rules to call hooks in functional component
+            - import hook in component file
+            - to use hook in component, call the hook in the top level of component
+            - hooks can't be Conditional
+        - Based on react features there are different types of hooks are available
+            - Built in Hooks
+                - useState(initial value) hook: used to create state in functional component, this hook will return an array of 2 arguments. First argument is a state, second argument is a function name used to update state. State updating function name must start with 'set'.
+                - useEffect(callbackfn, dependency): used to apply side efffects to a functional component.  we can pass side effects as its first argument as callback function, we can also pass an optional dependency argument to decide when to apply side effects in component.
+                - useRef(initial value optional): is a react hook that lets you reference a value that's not needed for rendering. initial value is optional, it returns an object "Current" key.
+            - custom hooks: create a js file to define a specific function for a special task. export the function from that file. function name must start with "use" keyword.
+    13. Form HAndling in react: There are 2 ways to manage data inside the form by a component.
+        - Controlled Components: are components which store form data inside its own state.
+        - Uncontrolled Components: components which access form data using its DOM elements reference.
